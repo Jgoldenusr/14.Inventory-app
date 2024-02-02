@@ -1,0 +1,24 @@
+<h1><%= data.category.name %></h1>
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>Objetos</h4>
+  <!-- prettier-ignore -->
+  <dl>
+    <% if (data.category_items.length > 0) { 
+      data.category_items.forEach(function(item) {%>
+      <dt><a href = <%= item.url %>><%= item.name %></a></dt>
+      <dd><%= item.description %></dd>
+      <dd><strong>En stock: </strong><%= item.inStock %></dd>
+      <dd><strong>Precio: $</strong><%= item.price.toString() %></dd>
+      <dd><strong>Categorias: </strong>
+        <% item.category.forEach(function(cat, index){%>
+        <a href = <%= cat.url%>><%=cat.name%></a>
+        <% if(index < item.category.length - 1){%>, <%}})%>
+      </dd>
+    <% })} else { %>
+    <p>Esta categoria no contiene objetos.</p>
+    <% }%>
+  </dl>
+</div>
+<hr />
+<p><a href = <%= data.category.url + "/delete" %>>Borrar categoria</a></p>
+<p><a href = <%= data.category.url + "/update" %>>Actualizar categoria</a></p>

@@ -1,0 +1,17 @@
+<h1><%= title + ": " + data._id %></h1>
+
+<p>¿Estas seguro de que deseas borrar este objeto?</p>
+<form method="POST" action="">
+  <div class="form-group">
+    <!-- prettier-ignore -->
+    <input
+      class="form-control"
+      id="itemId"
+      type="hidden"
+      name="itemId"
+      required="true"
+      value= <%= data._id %>
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Borrar</button>
+</form>

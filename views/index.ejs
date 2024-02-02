@@ -1,0 +1,16 @@
+<h1><%= title %></h1>
+<p>
+  Bievenido a su <em>App de inventario</em>, un sitio basico hecho en Express.js
+  desarrollado para practicar en TOP.
+</p>
+<h1>Contenido dinamico</h1>
+
+<% if (error) { %>
+<p>Error obteniendo el contenido dinamico.</p>
+<% } else { %>
+<p>El inventario contiene:</p>
+<ul>
+  <li><strong>Objetos: </strong><%= data.item_count %></li>
+  <li><strong>Categorias: </strong><%= data.category_count %></li>
+</ul>
+<% }%>

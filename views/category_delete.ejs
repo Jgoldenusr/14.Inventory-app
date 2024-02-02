@@ -1,0 +1,31 @@
+<h1><%= title + ": " + data.category.name %></h1>
+
+<% if(data.category_items.length) { %>
+<p><strong>Necesitas borrar los siguientes objetos.</strong></p>
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>Objetos</h4>
+  <dl>
+    <% data.category_items.forEach(function(item){%>
+    <!-- prettier-ignore -->
+    <dt><a href= <%= item.url %>><%= item.name %></a></dt>
+    <dd><%= item.description %></dd>
+    <% });%>
+  </dl>
+</div>
+<%} else {%>
+<p>¿Estas seguro de que quieres borrar esta categoria?</p>
+<form method="POST" action="">
+  <div class="form-group">
+    <!-- prettier-ignore -->
+    <input
+      class="form-control"
+      id="categoryId"
+      type="hidden"
+      name="categoryId"
+      required="true"
+      value= <%= data.category._id %>
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Borrar</button>
+</form>
+<%};%>

@@ -1,0 +1,82 @@
+<h1><%= title %></h1>
+
+<form method="POST" action="">
+  <div class="form-group">
+    <label for="name">Nombre:</label>
+    <!-- prettier-ignore -->
+    <input
+        class="form-control"
+        id="name"
+        type="text"
+        placeholder="Nombre de objeto..."
+        name="name"
+        required="true"
+        value="<%= data.item ? data.item.name : ''; %>"
+    >
+  </div>
+  <div class="form-group">
+    <label for="description">Descripcion:</label>
+    <textarea
+      class="form-control"
+      id="description"
+      type="textarea"
+      placeholder="Descripcion del objeto..."
+      name="description"
+      required="true"
+    >
+<%= data.item ? data.item.description : ''; %></textarea
+    >
+  </div>
+  <div class="form-group">
+    <label for="inStock">En stock:</label>
+    <!-- prettier-ignore -->
+    <input
+      class="form-control"
+      id="inStock"
+      type="text"
+      placeholder="Numero de objetos en el inventario..."
+      name="inStock"
+      required="true"
+      value= <%= data.item ? data.item.inStock : ''; %>
+    >
+  </div>
+  <div class="form-group">
+    <label for="price">Precio:</label>
+    <!-- prettier-ignore -->
+    <input
+      class="form-control"
+      id="price"
+      type="text"
+      placeholder="Precio..."
+      name="price"
+      required="true"
+      value= <%= data.item ? data.item.price : ''; %>
+    >
+  </div>
+  <div class="form-group">
+    <label>Categoria(s):</label>
+    <div>
+      <% data.categories.forEach(function(category){ %>
+      <!-- prettier-ignore -->
+      <div style="display: inline; padding-right: 10px">
+        <% if(category.checked) {%>
+        <input type="checkbox" name="category" id= <%= category._id %> value=<%= category._id %> checked>
+        <% } else { %>
+        <input type="checkbox" name="category" id= <%= category._id %> value=<%= category._id %>>
+        <% } %>
+        <label for= <%= category._id %>> <%= category.name %> </label>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Ingresar</button>
+</form>
+
+<% if (error) { %>
+<div>
+  <ul>
+    <% error.forEach(function(err){%>
+    <li><%= err.msg %></li>
+  </ul>
+</div>
+<% })}%>

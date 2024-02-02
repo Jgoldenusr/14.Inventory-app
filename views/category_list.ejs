@@ -1,0 +1,9 @@
+<h1><%= title %></h1>
+<ul>
+  <% if (data) { data.forEach(function(category){%>
+  <!-- prettier-ignore -->
+  <li><a href= <%= category.url %>><%= category.name %></a></li>
+  <% })} else { %>
+  <li>No existen categorias.</li>
+  <% }%>
+</ul>

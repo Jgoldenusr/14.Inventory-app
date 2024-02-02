@@ -1,0 +1,16 @@
+<h1><%= data.name %></h1>
+<!-- prettier-ignore -->
+<p><strong>Descripcion: </strong><%= data.description %></p>
+<p><strong>En stock: </strong><%= data.inStock%></p>
+<p><strong>Precio: $</strong><%= data.price.toString()%></p>
+<p>
+  <strong>Categorias: </strong>
+  <% data.category.forEach(function(val, index){%>
+  <!-- prettier-ignore -->
+  <a href=<%= val.url %>><%= val.name %></a>
+  <% if(index < data.category.length - 1){%>, <%}})%>
+  <!-- ^^Nótese la coma, también se cierra el forEach-->
+</p>
+<hr />
+<p><a href=<%= data.url + "/delete" %>>Borrar objeto</a></p>
+<p><a href=<%= data.url + "/update" %>>Actualizar objeto</a></p>
