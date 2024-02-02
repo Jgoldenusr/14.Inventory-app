@@ -1,6 +1,6 @@
 ## About the project
 
-This website was made for the "Inventory Application " challenge on TheOdinProject.com.
+This website was made for the "Inventory Application" challenge on TheOdinProject.com.
 
 This project is meant to showcase the NodeJS skills learned so far, mainly:
 
